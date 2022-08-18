@@ -20,6 +20,18 @@ public class Main {
             System.out.println("Ваша ОС не поддерживается");
         }
     }
+
+    public int calculateDeliveryDays(int deliveryDistance) {
+        if (deliveryDistance < 20 && deliveryDistance > 0) {
+            return 1;
+        } else if (deliveryDistance < 60 && deliveryDistance >= 20) {
+            return 2;
+        } else if (deliveryDistance < 100 && deliveryDistance >= 60) {
+            return 3;
+        } else {
+            throw new RuntimeException("Доставка невозможна");
+        }
+    }
     public static void main(String[] args) {
         // Задание 1
         System.out.println("Задание 1");
@@ -30,6 +42,9 @@ public class Main {
         System.out.println("Задание 2");
         int clientOs = 0;
         main.checkAndPrintSuitableOs(clientOs, year);
-
+        // Задание 3
+        System.out.println("Задание 3");
+        int deliveryDistance = 95;
+        System.out.println(main.calculateDeliveryDays(deliveryDistance) + " количество дней доставки");
     }
 }
